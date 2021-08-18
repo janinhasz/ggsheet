@@ -9,20 +9,18 @@ class Valorant:
     file_path = os.path.join(cur_path,"../match_reference.json")
 
     def __init__(self):
-        self.client = Client() 
+        self.client = Client(region="br")
         self.client.activate()
+        
 
     def load_match_data(self):
-        # agent images are from https://playvalorant.com/page-data/en-us/agents/page-data.json
         
         content = Loader.load_all_content(self.client)
         matches = self.client.fetch_match_history()["History"]
-        matchid = input("match id: ")
+        matchid = matches[0]["MatchID"]
         #matchid = matches[0]["MatchID"]
         match_data = self.client.fetch_match_details(matchid)
         
-        # with open("match_reference.json", "w") as f:
-        #     f.write(json.dumps(match_data))
         
         total_rounds = len(match_data["roundResults"])
 
@@ -37,9 +35,9 @@ class Valorant:
                 "teams": [
                     {
                         "team_name": team["teamId"],
-                        "team_alias": "ATK" if team["teamId"] == "Red" else "DEF",
+                        "team_alias": "ATKs" if team["teamId"] == "Red" else "DEF",
                         "won_bool": team["won"],
-                        "won": "WIN" if team["won"] else "LOSS",
+                        "won": "VITÓRIA" if team["won"] else "DERROTA",
                         "rounds_won": team["roundsWon"],
                     } for team in match_data["teams"]
                 ],

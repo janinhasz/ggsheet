@@ -54,8 +54,8 @@ class Builder:
         self.img = Image.open(Builder.base_image)
         self.draw = ImageDraw.Draw(self.img)
 
-        self.team_red_name = "ODK" #defenders
-        self.team_blue_name = "AJG" #attackers
+        self.team_red_name = "DEF" #defenders
+        self.team_blue_name = "ATK" #attackers
 
         self.image_ref_points = {
             "header_footer": {
@@ -65,7 +65,7 @@ class Builder:
                         "dimensions": (64,14), 
                         "color": (255,255,255),
                         "font": Builder.fonts["ddin"]["map_label"],
-                        "text": "MAP",
+                        "text": "MAPA",
                         "upper": True,
                     },
                     "map_name": {
@@ -84,25 +84,25 @@ class Builder:
                         "var_name": lambda *x: self.game_data["timestamp"],
                         "upper": True,
                         "justify": "r"
-                    }
-                    # "mode_name": {
-                    #     "anchor": (1679,236),
-                    #     "dimensions": (164,21), 
-                    #     "color": (255,255,255),
-                    #     "font": Builder.fonts["ddin"]["map_text"],
-                    #     "var_name": lambda *x: self.game_data["match_mode_display_name"],
-                    #     "upper": True,
-                    #     "justify": "l",
-                    # },
-                    # "mode_label": {
-                    #     "anchor": (1679,215),
-                    #     "dimensions": (64,14), 
-                    #     "color": (255,255,255),
-                    #     "font": Builder.fonts["ddin"]["map_label"],
-                    #     "text": "MODE",
-                    #     "upper": True,
-                    #     "justify": "l",
-                    # },
+                    },
+                    "mode_name": {
+                        "anchor": (1679,236),
+                        "dimensions": (164,21), 
+                        "color": (255,255,255),
+                        "font": Builder.fonts["ddin"]["map_text"],
+                        "var_name": lambda *x: self.game_data["match_mode_display_name"],
+                        "upper": True,
+                        "justify": "l",
+                     },
+                     "mode_label": {
+                        "anchor": (1679,215),
+                        "dimensions": (64,14), 
+                        "color": (255,255,255),
+                        "font": Builder.fonts["ddin"]["map_label"],
+                        "text": "MODO",
+                        "upper": True,
+                        "justify": "l",
+                     },
                 },
                 "images": {
                     "map": {
@@ -285,7 +285,7 @@ class Builder:
                         "dimensions": (174, 26), 
                         "color": (138,148,156),
                         "font": Builder.fonts["ddin"]["player_stat_label"],
-                        "text": "combat score",
+                        "text": "PDC",
                         "upper": True,
                         "justify": "l"
                     },
@@ -294,7 +294,7 @@ class Builder:
                         "dimensions": (174, 26), 
                         "color": (138,148,156),
                         "font": Builder.fonts["ddin"]["player_stat_label"],
-                        "text": "KD",
+                        "text": "AMA",
                         "upper": True,
                         "justify": "r"
                     },

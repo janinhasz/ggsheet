@@ -16,23 +16,23 @@ class Loader:
             "comp_tiers": [],
             "season": {},
             "queue_aliases": { #i'm so sad these have to be hardcoded but oh well :(
-                "newmap": "New Map",
-                "competitive": "Competitive",
-                "unrated": "Unrated",
-                "spikerush": "Spike Rush",
-                "deathmatch": "Deathmatch",
-                "ggteam": "Escalation",
-                "onefa": "Replication",
-                "custom": "Custom",
-                "snowball": "Snowball Fight",
-                "": "Custom",
+                "newmap": "Novo Mapa",
+                "competitive": "Competitivo",
+                "unrated": "Sem Class.",
+                "spikerush": "D. da Spike",
+                "deathmatch": "Mata-Mata",
+                "ggteam": "Escalação",
+                "onefa": "Replicação",
+                "custom": "Jogo Personalizado",
+                "snowball": "Batalha Nevada",
+                "": "Jogo Personalizado",
             },
             "team_aliases": {
-                "TeamOne": "Defender",
-                "TeamTwo": "Attacker",
-                "TeamSpectate": "Observor",
-                "TeamOneCoaches": "Defender Coach",
-                "TeamTwoCoaches": "Attacker Coach",
+                "TeamOne": "Defensor",
+                "TeamTwo": "Atacante",
+                "TeamSpectate": "Observante",
+                "TeamOneCoaches": "Coach defensor",
+                "TeamTwoCoaches": "Coach atacante",
                 "Red": ""
             },
             "team_image_aliases": {
@@ -46,8 +46,8 @@ class Loader:
         all_content = client.fetch_content()
         agents = Loader.fetch("/agents")["data"]
         maps = Loader.fetch("/maps")["data"]
-        modes = Loader.fetch("/gamemodes")["data"]
-        comp_tiers = Loader.fetch("/competitivetiers")["data"][-1]["tiers"]
+        modes = Loader.fetch("/gamemodes?language=pt-BR")["data"]
+        comp_tiers = Loader.fetch("/competitivetiers?language=pt-BR")["data"][-1]["tiers"]
         
 
         for season in all_content["Seasons"]:
